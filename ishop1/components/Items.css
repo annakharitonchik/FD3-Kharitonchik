@@ -1,0 +1,16 @@
+﻿.Items {
+  font-size: 30px;
+  height: 220px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+img {
+  width: 100px;
+  margin: 0 auto;
+}
+.ItemBlock {
+  display: inline-grid;
+  text-align: center;
+}
