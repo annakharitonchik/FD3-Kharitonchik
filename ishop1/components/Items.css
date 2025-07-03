@@ -9,8 +9,14 @@
 img {
   width: 100px;
   margin: 0 auto;
+  border: hidden;
+  padding: 3px;
 }
 .ItemBlock {
   display: inline-grid;
   text-align: center;
+}
+
+.Photo.selected {
+  border: solid;
 }
