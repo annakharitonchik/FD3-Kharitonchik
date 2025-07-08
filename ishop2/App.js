@@ -3,9 +3,14 @@ import ReactDOM from 'react-dom';
 
 import Shop from './components/Shop.js';
 
-import items from './items.json';
+const shopName ='Ромашка\uD83C\uDF3C';
+
+import shopItems from './items.json';
 
 ReactDOM.render(
-  <Shop  items={items} />
+  <Shop 
+    name={shopName}
+    items={shopItems}
+  />
   , document.getElementById('container') 
 );

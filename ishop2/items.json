@@ -1,0 +1,5 @@
+[
+  { "name": "морковь", "code": 1, "price": 5, "photo": "imgs/carrot.png",  "quantity": 1},
+  { "name": "капуста", "code": 2, "price": 6, "photo": "imgs/cabbage.png", "quantity": 4},
+  { "name": "огурец", "code": 3, "price": 7, "photo": "imgs/cucumber.png", "quantity": 3}
+]

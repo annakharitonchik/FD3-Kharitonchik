@@ -2,31 +2,61 @@
 
 import "./Shop.css";
 
-import ShopName  from "./ShopName.js";
-import ShopItems from "./ShopItems.js";
+import Items from "./Items.js";
 
 class Shop extends React.Component {
+  headers = ["Name", "Price", "URL", "Quantity", "Control"];
 
   state = {
-    selectedCode: null
+    selectedCode: null,
+    items: this.props.items,
   };
 
   select = (code) => {
     this.setState({ selectedCode: code });
   };
-
+  deleteItem(name, code) {
+    let ans = confirm(`Вы точно хотите удалить ${name + code}?`);
+    if (ans) {
+      let updatedItems = this.state.items.filter((item) => item.code !== code);
+      this.setState({ items: updatedItems });
+    }
+  }
   render() {
-    const ItemsCode = this.props.items.map((v) => (
-      <ShopItems key={v.code} name={v.name} price={v.price+"р/кг"} code={v.code} photo={v.photo} quantity = {v.quantity+'кг'}
-      selected={this.state.selectedCode === v.code}
-      onSelect={() => this.select(v.code)}/>
+   const ItemsCode = this.state.items.map((v) => (
+      <Items
+        key={v.code}
+        code={v.code}
+        name={v.name}
+        price={v.price}
+        url={v.url}
+        quantity={v.quantity}
+        control={
+          <button
+            onClick={(eo) => {
+              eo.stopPropagation();
+              this.deleteItem(v.name, v.code);
+            }}
+          >
+            Delete
+          </button>
+        }
+        selected={this.state.selectedCode === v.code}
+        onSelect={() => this.select(v.code)}
+      />
     ));
 
     return (
-      <div className="Shop">
-        <ShopName name ={this.props.name} />
-        <div className="Items">{ItemsCode}</div>
-      </div>
+      <table className="Shop" border={1}>
+        <thead className="NameOfItems">
+          <tr>
+            {this.headers.map((header, index) => (
+              <th key={index + 10}>{header}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody className="Items">{ItemsCode}</tbody>
+      </table>
     );
   }
 }
