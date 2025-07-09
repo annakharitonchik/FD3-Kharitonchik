@@ -1,11 +1,13 @@
 ﻿import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Shop from './components/Shop.js';
+import Filter from './components/Filter.js';
 
-import items from './items.json';
+import words from './words.json';
 
 ReactDOM.render(
-  <Shop  items={items} />
+  <Filter 
+    words={words}
+  />
   , document.getElementById('container') 
 );

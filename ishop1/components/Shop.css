@@ -1,25 +1,5 @@
 ﻿.Shop {
-  font-family: "Courier New", Courier, monospace;
-  font-weight: bold;
-  font-size: 40px;
-  margin: 0 auto;
-}
-table {
-  border-collapse: collapse;
-  border: solid 5px #393939;
-  cursor: pointer;
-}
-td,
-th {
-  border: solid 5px #393939;
-  text-align: center;
-  padding: 0 10px;
-}
-.Control {
-  padding: 2px 3px;
-}
-button {
-  width: 100%;
-  height: 100%;
-  border: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 40px;
 }

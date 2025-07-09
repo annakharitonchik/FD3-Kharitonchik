@@ -1,0 +1,17 @@
+﻿
+select{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 20px;
+    display: block;
+    margin-top: 10px;
+margin-left: 23px;
+width: 247px;
+}
+
+input{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 5px;
+}

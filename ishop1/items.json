@@ -1,45 +1,5 @@
 [
-  {
-    "name": "product",
-    "code": 1,
-    "price": 50,
-    "url": "imgs/carrot.png",
-    "quantity": 14
-  },
-  {
-    "name": "product",
-    "code": 2,
-    "price": 60,
-    "url": "imgs/cabbage.png",
-    "quantity": 47
-  },
-  {
-    "name": "product",
-    "code": 3,
-    "price": 70,
-    "url": "imgs/cucumber.png",
-    "quantity": 33
-  },
-  {
-    "name": "product",
-    "code":4 ,
-    "price": 30,
-    "url": "imgs/potato.png",
-    "quantity": 20
-  },
-  {
-    "name": "product",
-    "code": 5,
-    "price": 10,
-    "url": "imgs/tomato.png",
-    "quantity": 21
-  },
-  {
-    "name": "product",
-    "code": 6,
-    "price": 80,
-    "url": "imgs/onion.png",
-    "quantity": 56
-    
-  }
+  { "name": "морковь", "code": 1, "price": 5, "photo": "imgs/carrot.png",  "quantity": 1},
+  { "name": "капуста", "code": 2, "price": 6, "photo": "imgs/cabbage.png", "quantity": 4},
+  { "name": "огурец", "code": 3, "price": 7, "photo": "imgs/cucumber.png", "quantity": 3}
 ]
