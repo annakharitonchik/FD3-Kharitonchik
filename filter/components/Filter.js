@@ -6,36 +6,51 @@ class Filter extends React.Component {
   state = {
     searchingText: "",
     checkboxStatus: false,
+    newList: this.props.words,
   };
 
-  searchedWords = (eo) => {
-    this.setState({
-      searchingText: eo.target.value.toLowerCase(),
-    });
-  };
-
-  filteredWords = (eo) => {
-    this.setState({
-      checkboxStatus: eo.target.checked,
-    });
-  };
-  reset = () => {
-    this.setState({
-      searchingText: "",
-      checkboxStatus: false,
-    });
-  };
   getWords() {
     const filtered = this.props.words.filter((word) =>
       word.includes(this.state.searchingText)
     );
 
     if (this.state.checkboxStatus) {
-      return filtered.sort((a, b) => a.localeCompare(b));
+      const result = filtered.sort((a, b) => a.localeCompare(b));
+      this.setState({
+        newList: result,
+      });
     } else {
-      return filtered;
+      this.setState({
+        newList: filtered,
+      });
     }
   }
+
+  searchedWords = (eo) => {
+    this.setState(
+      {
+        searchingText: eo.target.value.toLowerCase(),
+      },
+      this.getWords
+    );
+  };
+
+  filteredWords = (eo) => {
+    this.setState(
+      {
+        checkboxStatus: eo.target.checked,
+      },
+      this.getWords
+    );
+  };
+
+  reset = () => {
+    this.setState({
+      searchingText: "",
+      checkboxStatus: false,
+      newList: this.props.words,
+    });
+  };
 
   render() {
     return (
@@ -43,7 +58,7 @@ class Filter extends React.Component {
         <input
           type="checkbox"
           className="check"
-          checked = {this.state.checkboxStatus}
+          checked={this.state.checkboxStatus}
           onChange={this.filteredWords}
         ></input>
         <input
@@ -59,7 +74,7 @@ class Filter extends React.Component {
           onClick={this.reset}
         ></input>
         <select className="words" multiple size={4}>
-          {this.getWords().map((v, i) => (
+          {this.state.newList.map((v, i) => (
             <option key={i + 10 + 1} value={i + 1}>
               {v}
             </option>
