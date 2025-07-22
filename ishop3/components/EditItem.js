@@ -201,32 +201,32 @@ class EditItem extends React.Component {
             }}
             onClick={() => {
               this.props.changeDisable(false),
-                this.setState({
-                  name: this.props.name,
-                  price: this.props.price,
-                  url: this.props.url,
-                  quantity: this.props.quantity,
-                  saveDisable: true,
-                });
-              this.errCount =
-                this.props.mode == "editItem"
-                  ? {
-                      name: false,
-                      price: false,
-                      url: false,
-                      quantity: false,
-                    }
-                  : {
-                      name: true,
-                      price: true,
-                      url: true,
-                      quantity: true,
-                    };
+                // this.setState({
+                //   name: this.props.name,
+                //   price: this.props.price,
+                //   url: this.props.url,
+                //   quantity: this.props.quantity,
+                //   saveDisable: true,
+                // });
+                // this.errCount =
+                this.props.changeToDefMode();
+              //     ? {
+              //         name: false,
+              //         price: false,
+              //         url: false,
+              //         quantity: false,
+              //       }
+              //     : {
+              //         name: true,
+              //         price: true,
+              //         url: true,
+              //         quantity: true,
+              //       };
 
-              const messages = document.querySelectorAll(".warning");
-              messages.forEach((element) => {
-                element.style.display = "none";
-              });
+              // const messages = document.querySelectorAll(".warning");
+              // messages.forEach((element) => {
+              //   element.style.display = "none";
+              // });
             }}
           >
             Cancel
