@@ -186,7 +186,7 @@ class EditItem extends React.Component {
               });
               this.props.changeToDefMode();
               this.props.changeDisable(false);
-              this.props.addUniqueKey();
+              this.props.mode == "newCard" && this.props.addUniqueKey();
             }}
           >
             {this.props.mode == "editItem" ? "Save" : "Add"}
