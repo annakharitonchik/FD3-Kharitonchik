@@ -7,7 +7,6 @@ class EditItem extends React.Component {
     price: this.props.price,
     url: this.props.url,
     quantity: this.props.quantity,
-    mode: this.props.mode,
     errCount:
       this.props.mode === "editItem"
         ? { name: false, price: false, url: false, quantity: false }
@@ -55,7 +54,7 @@ class EditItem extends React.Component {
   }
 
   errCount =
-    this.state.mode == "editItem"
+    this.props.mode == "editItem"
       ? {
           name: false,
           price: false,
@@ -88,17 +87,9 @@ class EditItem extends React.Component {
 
   render() {
     return (
-      <form
-        className={
-          this.state.mode == "editItem"
-            ? this.props.selected
-              ? "EditCard"
-              : "NoEditCard"
-            : "EditCard"
-        }
-      >
+      <form className="EditCard">
         <p className="description">
-          {this.state.mode == "editItem"
+          {this.props.mode == "editItem"
             ? "Edit existing product"
             : "Add new product"}
         </p>
@@ -187,6 +178,7 @@ class EditItem extends React.Component {
             onClick={() => {
               this.props.onSave({
                 code: this.props.code,
+                uniqueKey: this.state.uniqueKey,
                 name: this.state.name,
                 price: this.state.price,
                 url: this.state.url,
@@ -194,9 +186,10 @@ class EditItem extends React.Component {
               });
               this.props.changeToDefMode();
               this.props.changeDisable(false);
+              this.props.addUniqueKey();
             }}
           >
-            {this.state.mode == "editItem" ? "Save" : "Add"}
+            {this.props.mode == "editItem" ? "Save" : "Add"}
           </button>
           <button
             type="button"
@@ -215,9 +208,8 @@ class EditItem extends React.Component {
                   quantity: this.props.quantity,
                   saveDisable: true,
                 });
-
               this.errCount =
-                this.state.mode == "editItem"
+                this.props.mode == "editItem"
                   ? {
                       name: false,
                       price: false,

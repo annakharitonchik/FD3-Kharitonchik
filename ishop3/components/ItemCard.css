@@ -1,36 +1,31 @@
-.NoCard{
-    display: none;
-
+.Card {
+  display: flex;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 40px;
+  flex-direction: column;
 }
-
-.Card{
-    display: flex;
-    font-family: "Courier New", Courier, monospace;
-    font-size: 40px;
-    flex-direction: column;
+.Card p {
+  font-size: 30px;
+  width: auto;
+  margin: 0;
 }
-p{
-    font-size: 30px;
-    margin:0;
+h5 {
+  margin: 30px 0 10px 0;
 }
-h5{
-    margin: 30px 0 10px 0;
+.Info {
+  display: flex;
+  height: 200px;
+  gap: 50px;
+  align-items: center;
 }
-.Info{
-    display: flex;
-    height: 200px;
-    gap: 50px;
-    align-items: center;
-}
-img{
-    height: 80%;
-  border: solid 3px  #393939;
+img {
+  height: 80%;
+  border: solid 3px #393939;
   padding: 4px;
-  
 }
-.TextInfo{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 100%;
+.TextInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
 }

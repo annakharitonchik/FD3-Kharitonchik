@@ -3,10 +3,10 @@ import "./ItemCard.css";
 class ItemCard extends React.Component {
   render() {
     return (
-      <div className={this.props.selected ? "Card" : "NoCard"}>
+      <div className="Card">
         <h5 className="Name">{this.props.name}</h5>
         <div className="Info">
-          <div className="TextInfo" >
+          <div className="TextInfo">
             <p className="Price">{this.props.price}</p>
             <p className="Quantity">{this.props.quantity}</p>
           </div>

@@ -6,9 +6,6 @@
   margin-top: 15px;
 }
 
-.NoEditCard {
-  display: none;
-}
 label {
   display: flex;
 }
@@ -23,6 +20,7 @@ label {
 }
 p {
   width: 150px;
+  margin: 0;
 }
 .description {
   width: auto;

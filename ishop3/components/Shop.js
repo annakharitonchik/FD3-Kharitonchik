@@ -15,6 +15,7 @@ class Shop extends React.Component {
     mode: "itemCard",
     disable: false,
     saveDisable: false,
+    uniqueKey: 7,
   };
 
   select = (code) => {
@@ -33,6 +34,7 @@ class Shop extends React.Component {
   editItem(code) {
     this.setState({ selectedCode: code, mode: "editItem" });
   }
+  addUniqueKey = () => this.setState({ uniqueKey: this.state.uniqueKey + 1 });
   changeToDefMode = () => this.setState({ mode: null });
   changeDisable = (disableState) =>
     this.setState({
@@ -74,29 +76,35 @@ class Shop extends React.Component {
         disabled={this.state.disable}
       />
     ));
-    const ItemCardCode = this.state.items.map((v) => (
+
+    const selectedItemIndex = this.state.items.indexOf(
+      this.state.items.find((item) => this.state.selectedCode === item.code)
+    );
+    const selectedItem = this.state.items[selectedItemIndex];
+    const ItemCardCode = selectedItem ? (
       <ItemCard
-        key={v.code}
-        code={v.code}
-        name={v.name}
-        price={`Price: ${v.price}`}
-        url={v.url}
-        quantity={`Quantity ${v.quantity}`}
-        selected={this.state.selectedCode === v.code}
+        key={selectedItem.code}
+        code={selectedItem.code}
+        name={selectedItem.name}
+        price={`Price: ${selectedItem.price}`}
+        url={selectedItem.url}
+        quantity={`Quantity ${selectedItem.quantity}`}
       />
-    ));
-    const EditItemCode = this.state.items.map((v, i) => (
+    ) : (
+      ""
+    );
+
+    const EditItemCode = selectedItem ? (
       <EditItem
-        key={v.code}
-        code={v.code}
+        key={selectedItem.code}
+        code={selectedItem.code}
         mode={this.state.mode}
-        id={i + 1}
-        name={v.name}
-        price={v.price}
-        url={v.url}
-        quantity={v.quantity}
+        id={selectedItemIndex + 1}
+        name={selectedItem.name}
+        price={selectedItem.price}
+        url={selectedItem.url}
+        quantity={selectedItem.quantity}
         changeDisable={this.changeDisable}
-        selected={this.state.selectedCode === v.code}
         changeToDefMode={this.changeToDefMode}
         onSave={(updatedItem) => {
           const newItems = this.state.items.map((element) => {
@@ -111,11 +119,15 @@ class Shop extends React.Component {
           });
         }}
       />
-    ));
+    ) : (
+      ""
+    );
+
     const NewItemCode = (
       <EditItem
-        key={this.state.items.length + 1}
-        code={this.state.items.length + 1}
+        addUniqueKey={this.addUniqueKey}
+        key={this.state.uniqueKey}
+        code={this.state.uniqueKey}
         mode={this.state.mode}
         id={this.state.items.length + 1}
         saveDisable={this.state.saveDisable}
@@ -126,7 +138,9 @@ class Shop extends React.Component {
         changeToDefMode={this.changeToDefMode}
         changeDisable={this.changeDisable}
         onSave={(newItem) => {
-          this.state.items.push(newItem);
+          this.setState((prevState) => ({
+            items: [...prevState.items, newItem],
+          }));
         }}
       />
     );
