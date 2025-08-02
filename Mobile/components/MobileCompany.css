@@ -1,0 +1,43 @@
+﻿.MobileCompany {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+button {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 20px;
+  display: block;
+  background: #646464;
+  border: none;
+}
+button:hover {
+  background: #aaaaaa;
+  cursor: pointer;
+}
+.AddClient,
+.ThreeButtons button {
+  align-self: flex-start;
+  margin-top: 10px;
+  width: auto;
+  display: flex;
+  align-items: center;
+}
+.ThreeButtons {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+  gap: 5px;
+}
+p,
+h3 {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  font-weight: normal;
+}
+.Client:last-child {
+  border-bottom: solid 2px rgb(165, 165, 165);
+}
