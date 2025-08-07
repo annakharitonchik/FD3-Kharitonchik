@@ -1,0 +1,28 @@
+﻿.InfoHeaders,
+.Client {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
+  align-items: center;
+  text-align: center;
+  border-top: solid 2px rgb(165, 165, 165);
+  padding: 5px 0;
+}
+.StatusActive {
+  background: #9f9;
+}
+.StatusBlocked {
+  background: #f38888;
+}
+.EditClient {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0 10px;
+}
+input {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 20px;
+  text-align: center;
+  width: 70%;
+  margin: 0 auto;
+}
