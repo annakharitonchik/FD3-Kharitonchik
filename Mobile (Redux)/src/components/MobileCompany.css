@@ -1,0 +1,69 @@
+﻿.MobileCompany {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+button {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 20px;
+  display: block;
+  background: #646464;
+  border: none;
+}
+button:hover {
+  background: #aaaaaa;
+  cursor: pointer;
+}
+.AddClient,
+.ThreeButtons button {
+  align-self: flex-start;
+  margin-top: 10px;
+  width: auto;
+  display: flex;
+  align-items: center;
+}
+.ThreeButtons {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+  gap: 5px;
+}
+p,
+h3 {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  font-weight: normal;
+}
+.Client:last-child {
+  border-bottom: solid 2px rgb(165, 165, 165);
+}
+.spinner {
+  border: 6px solid #f3f3f3; /* светлый фон */
+  border-top: 6px solid #ff009b; /* цвет вращающейся полоски */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 50px auto; /* по центру */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px; /* можно под размер блока */
+}
